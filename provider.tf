@@ -15,7 +15,7 @@ provider "google" {
 
 terraform {
   backend "gcs" {
-    bucket  = "tf-state-dev-mytest-project"
-    prefix  = "cloudrun/app"
+    bucket = "tf-state-dev-mytest-project"
+    prefix = "cloudrun/app"
   }
 }

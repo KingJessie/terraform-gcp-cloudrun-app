@@ -6,11 +6,11 @@ module "artifact_registry" {
 }
 
 module "cloud_run" {
-  source        = "./modules/cloud_run"
-  project_id    = var.project_id
-  region        = var.region
-  service_name  = "pw-generator"
-  image         = "europe-west2-docker.pkg.dev/${var.project_id}/docker/pw-generator:${var.version}"
+  source       = "./modules/cloud_run"
+  project_id   = var.project_id
+  region       = var.region
+  service_name = "pw-generator"
+  image        = "europe-west2-docker.pkg.dev/${var.project_id}/docker/pw-generator:${var.image_tag}"
 }
 
 module "dns" {

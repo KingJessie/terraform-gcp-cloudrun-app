@@ -26,7 +26,7 @@ variable "image" {
   type        = string
 }
 
-variable "version" {
+variable "image_tag" {
   description = "Image tag version"
   type        = string
 }
