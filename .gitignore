@@ -1,15 +1,16 @@
 # Terraform
 *.tfstate
+*.tfvars
 .terraform/
 .terraform.lock.hcl
-.tfvars
-
-.DS_Store
-.vscode/
 
 # Python
 __pycache__/
 env/
 venv/
 .env
-.tfvars
+
+
+.DS_Store
+.vscode/
+.idea/
