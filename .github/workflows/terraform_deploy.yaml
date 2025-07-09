@@ -31,25 +31,25 @@ jobs:
           export GOOGLE_APPLICATION_CREDENTIALS="${HOME}/gcp-key.json"
           gcloud auth activate-service-account --key-file="${HOME}/gcp-key.json"
           gcloud config set project $PROJECT_ID
-
+          
       - name: Terraform Init
-        run: terraform init
+        run: cd terraform && terraform init
 
       - name: Terraform Format Check
-        run: terraform fmt -check -recursive
+        run: cd terraform && terraform fmt -check -recursive
 
       - name: Terraform Validate
-        run: terraform validate
+        run: cd terraform && terraform validate
 
       - name: Terraform Plan
         run: |
-          terraform plan \
+          cd terraform && terraform plan \
             -var="project_id=${{ secrets.GCP_PROJECT_ID }}" \
             -var="image_tag=${{ github.ref_name }}"
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
         run: |
-          terraform apply -auto-approve \
+          cd terraform && terraform apply -auto-approve \
             -var="project_id=${{ secrets.GCP_PROJECT_ID }}" \
             -var="image_tag=${{ github.ref_name }}"
