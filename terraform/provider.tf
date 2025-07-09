@@ -8,8 +8,8 @@ terraform {
 }
 
 provider "google" {
-  project = "aqueous-rarity-465009-h8"
-  region  = "europe-west2"
+  project = var.project_id
+  region  = var.region
   zone    = "europe-west2-b"
 }
 
